@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿El narcotráfico alineado con el gobierno mexicano?</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+  <style>
+    :root {
+      --color-bg: #121212;
+      --color-primary: #1EB980;
+      --color-secondary: #2E3A59;
+      --color-accent: #FFC857;
+      --color-light: #F0F0F0;
+      --color-dark: #0A0A0A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-light);
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-secondary);
+      padding: 1rem 2rem;
+      text-align: center;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      color: var(--color-accent);
+      font-size: 1.8rem;
+    }
+    .hero {
+      position: relative;
+      height: 60vh;
+      background: url('https://via.placeholder.com/1200x600') center/cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(18,18,18,0.6);
+    }
+    .hero h2 {
+      position: relative;
+      color: var(--color-accent);
+      font-size: 2.5rem;
+      max-width: 800px;
+      line-height: 1.2;
+      animation: zoomIn 1s ease-out;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0;}
+      to { transform: scale(1); opacity: 1;}
+    }
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1;
+      padding: 1rem;
+      min-width: 200px;
+    }
+    .stat h3 {
+      font-size: 2.5rem;
+      color: var(--color-accent);
+    }
+    .stat p {
+      margin-top: .5rem;
+      font-size: 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: var(--color-primary);
+      transform: translateX(-50%);
+    }
+    .entry {
+      position: relative;
+      width: 45%;
+      padding: 1rem 2rem;
+      background: var(--color-secondary);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .entry:nth-child(odd) { left: 0; }
+    .entry:nth-child(even) { left: 55%; }
+    .entry::after {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      width: 16px;
+      height: 16px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      border: 4px solid var(--color-bg);
+    }
+    .entry:nth-child(odd)::after { right: -28px; }
+    .entry:nth-child(even)::after { left: -28px; }
+    .entry h4 {
+      margin-bottom: .5rem;
+      color: var(--color-accent);
+    }
+    .entry p {
+      font-size: .95rem;
+      line-height: 1.4;
+    }
+
+    .swiper {
+      width: 100%;
+      padding: 2rem 0;
+    }
+    .swiper-slide {
+      background: var(--color-secondary);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .swiper-slide p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .swiper-slide h5 {
+      font-weight: bold;
+      color: var(--color-accent);
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--color-secondary);
+      overflow: hidden;
+    }
+    .faq-item button {
+      width: 100%;
+      background: var(--color-secondary);
+      color: var(--color-light);
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-item button.active {
+      background: var(--color-primary);
+      color: var(--color-dark);
+    }
+    .faq-item .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+      background: var(--color-dark);
+      display: flex;
+      align-items: flex-start;
+      padding: 0 1rem;
+    }
+    .faq-item .content img {
+      width: 120px;
+      margin-right: 1rem;
+      border-radius: 4px;
+    }
+    .faq-item .content p {
+      padding: 1rem 0;
+      flex: 1;
+    }
+
+    footer {
+      background: var(--color-secondary);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: .9rem;
+      color: var(--color-light);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>¿El narcotráfico alineado con el gobierno mexicano?</h1>
+  </header>
+
+  <section class="hero">
+    <h2>Explorando las conexiones ocultas entre poder político y cárteles de la droga en México</h2>
+  </section>
+
+  <main>
+
+    <section class="stats" data-aos="fade-up">
+      <div class="stat">
+        <h3 class="counter" data-target="26715">0</h3>
+        <p>Asesinatos en 2024</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="21900000">0</h3>
+        <p>Víctimas de delitos en 2023</p>
+      </div>
+      <div class="stat">
+        <h3 class="counter" data-target="26">0</h3>
+        <p>Puntaje en Índice de Corrupción</p>
+      </div>
+    </section>
+
+    <section class="timeline" data-aos="fade-up">
+      <div class="entry">
+        <h4>2006</h4>
+        <p>Inicio de la guerra contra el narcotráfico declarada por el gobierno federal.</p>
+      </div>
+      <div class="entry">
+        <h4>2012</h4>
+        <p>Revelaciones de vínculos de altos funcionarios con cárteles.</p>
+      </div>
+      <div class="entry">
+        <h4>2018</h4>
+        <p>Elección de nuevo presidente con promesa de paz y diálogo.</p>
+      </div>
+      <div class="entry">
+        <h4>2024</h4>
+        <p>Últimos informes de colusión detectados en varias regiones.</p>
+      </div>
+      <div class="entry">
+        <h4>2025</h4>
+        <p>Violencia en Sinaloa resurge con enfrentamientos tras detención de líderes del cártel.</p>
+      </div>
+    </section>
+
+    <section class="swiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <p>"Sentí miedo al revelar lo que sabía, pero era mi deber."</p>
+          <h5>- Exfuncionario</h5>
+        </div>
+        <div class="swiper-slide">
+          <p>"La corrupción tocó nuestros gobiernos locales sin excepción."</p>
+          <h5>- Periodista de investigación</h5>
+        </div>
+        <div class="swiper-slide">
+          <p>"La impunidad sigue siendo el principal aliado del narcotráfico."</p>
+          <h5>- Activista social</h5>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <section class="faq" data-aos="fade-up">
+      <div class="faq-item">
+        <button>¿Cómo se determina la colusión?</button>
+        <div class="content">
+          <img src="img/imagen13.jpg" alt="Colusión detalle">
+          <p>Se basa en auditorías, análisis de comunicaciones y pruebas documentales:<br>– Auditorías forenses<br>– Testimonios verificados<br>– Registros financieros</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button>¿Qué ofrece el gobierno para combatirla?</button>
+        <div class="content">
+          <img src="img/imagen14.jpg" alt="Programas gobierno">
+          <p>Las principales medidas incluyen:<br>– Guardia Nacional<br>– Plataformas de denuncia anónima<br>– Sesiones de transparencia pública</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button>¿Cómo puedo apoyar la lucha contra la impunidad?</button>
+        <div class="content">
+          <img src="img/imagen15.jpg" alt="Apoyo social">
+          <p>Tus acciones pueden ser:<br>– Difundir información veraz<br>– Participar en colectivos<br>– Presentar denuncias formales</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 300;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 5);
+        } else {
+          counter.innerText = target.toLocaleString('es-MX');
+        }
+      };
+      updateCount();
+    });
+
+    const faqButtons = document.querySelectorAll('.faq-item button');
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        button.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+
+</body>
+</html>

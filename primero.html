@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campos de Exterminio en México</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #1e1e1e;
+      color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #111;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-family: 'Merriweather', serif;
+      color: #e74c3c;
+      font-size: 2.2em;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 250px 1fr 250px;
+      gap: 24px;
+      padding: 30px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .sidebar {
+      background: #2c2c2c;
+      border-left: 4px solid #e74c3c;
+      border-radius: 8px;
+      padding: 20px;
+      font-weight: 300;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 12px;
+      color: #e74c3c;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    .sidebar ul {
+      list-style-type: square;
+      padding-left: 18px;
+    }
+
+    main {
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .image-section {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.85);
+      transition: transform 0.4s ease;
+    }
+
+    .image-section:hover img {
+      transform: scale(1.04);
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 14px;
+      font-size: 0.95em;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .image-section:hover .caption {
+      transform: translateY(0);
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-left: 4px solid #e74c3c;
+      border-radius: 8px;
+      padding: 22px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .card h2 {
+      color: #e74c3c;
+      font-family: 'Merriweather', serif;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+
+    .video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 992px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Campos de Exterminio en México</h1>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h3>¿Qué son?</h3>
+      <p>En el contexto mexicano, "campos de exterminio" describe sitios donde grupos criminales torturan, asesinan y desaparecen personas con métodos sistemáticos y brutales comparables a los de conflictos armados.</p>
+    </aside>
+
+    <main>
+      <section class="image-section">
+        <img src="img/imagen11.jpg" alt="Campo clandestino en México">
+        <div class="caption">
+          <h3>Hallazgos en Jalisco</h3>
+          <p>Colectivos de búsqueda han encontrado restos humanos calcinados en hornos improvisados.</p>
+        </div>
+      </section>
+
+      <div class="card">
+        <h2>La violencia sistemática</h2>
+        <p>En estados como Jalisco, Guanajuato y Veracruz se han localizado terrenos usados para desaparecer cuerpos mediante fuego, ácido o entierros masivos. Los colectivos denuncian su uso como centros de exterminio.</p>
+      </div>
+
+      <div class="card">
+        <h2>Participación de colectivos</h2>
+        <p>Grupos como las Madres Buscadoras han localizado cientos de fosas clandestinas. En muchos sitios se han hallado hornos artesanales y tambos metálicos usados para calcinación de víctimas.</p>
+      </div>
+
+      <div class="card">
+        <h2>Impunidad y crisis forense</h2>
+        <p>La falta de respuesta institucional ha generado una crisis forense. Se estima que hay más de 50,000 cuerpos sin identificar en el país.</p>
+      </div>
+
+      <section class="video">
+        <iframe src="https://www.youtube.com/embed/q3DTwh7xjKo" allowfullscreen></iframe>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      <h3>Estados con hallazgos</h3>
+      <ul>
+        <li>Jalisco</li>
+        <li>Veracruz</li>
+        <li>Guanajuato</li>
+        <li>Tamaulipas</li>
+        <li>Sonora</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>

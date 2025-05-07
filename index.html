@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>México De Luto</title>
+  <!-- Fuentes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fdfcfb;
+      font-family: 'Open Sans', sans-serif;
+      color: #2c2c2c;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #2e3a59, #1b2336);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 40px;
+    }
+
+    .titulo1 {
+      color: #fff;
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      background-color: #1b2336;
+    }
+
+    .opciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 40px;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .opciones button {
+      background-color: #3e4a6b;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .opciones button:hover {
+      background-color: #566287;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 180px 40px 60px;
+    }
+
+    .carrusel-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .carrusel {
+      display: flex;
+      width: 400%;
+      height: 450px;
+      animation: slide 16s infinite ease-in-out;
+    }
+
+    .carrusel:hover {
+      animation-play-state: paused;
+    }
+
+    .carrusel-item {
+      width: 25%;
+      flex-shrink: 0;
+    }
+
+    .carrusel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%, 20% { transform: translateX(0); }
+      25%, 45% { transform: translateX(-25%); }
+      50%, 70% { transform: translateX(-50%); }
+      75%, 95% { transform: translateX(-75%); }
+    }
+
+    .info-cajas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 60px;
+    }
+
+    .info-caja {
+      background: #fff;
+      border-left: 6px solid #3e4a6b;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      width: 100%;
+      max-width: 360px;
+      transition: all 0.3s ease;
+    }
+
+    .info-caja:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .info-caja h2 {
+      font-size: 1.4rem;
+      color: #2e3a59;
+      margin-bottom: 10px;
+    }
+
+    .info-caja p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .info-caja img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .carrusel {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1 class="titulo1">MÉXICO: EL PAÍS DONDE CAVAN MÁS FOSAS QUE POZOS DE AGUA</h1>
+    </div>
+    <nav>
+      <div class="opciones">
+        <button onclick="redirigir('primero.html')">Teuchitlán no fue la primera</button>
+        <button onclick="redirigir('segundo.html')">Últimos hallazgos</button>
+        <button onclick="redirigir('tercero.html')">CJNG + Gobierno</button>
+        <button onclick="redirigir('cuarto.html')">Testimonios</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="carrusel-container">
+      <div class="carrusel">
+        <div class="carrusel-item"><img src="img/imagen0.jpg" alt="Imagen 1"></div>
+        <div class="carrusel-item"><img src="img/imagen1.jpg" alt="Imagen 2"></div>
+        <div class="carrusel-item"><img src="img/imagen2.jpg" alt="Imagen 3"></div>
+        <div class="carrusel-item"><img src="img/imagen3.jpg" alt="Imagen 4"></div>
+      </div>
+    </div>
+
+    <section class="info-cajas">
+      <div class="info-caja">
+        <h2>Contexto actual</h2>
+        <p>México enfrenta una crisis humanitaria donde el hallazgo de fosas clandestinas es casi cotidiano.</p>
+        <img src="img/imagen4.jpg" alt="Contexto Actual">
+        <p>Desde 2006, se han descubierto más de 5,000 fosas con miles de cuerpos sin identificar. Los colectivos de búsqueda, conformados principalmente por madres, han hecho más que el propio gobierno.</p>
+      </div>
+
+      <div class="info-caja">
+        <h2>Responsables</h2>
+        <p>El crimen organizado y la colusión de autoridades son factores clave en esta tragedia.</p>
+        <img src="img/imagen5.jpg" alt="Responsables">
+        <p>Se estima que muchos cuerpos en las fosas corresponden a víctimas de desaparición forzada, extorsión o trata. La impunidad reina mientras el Estado falla en investigar y sancionar.</p>
+      </div>
+
+      <div class="info-caja">
+        <h2>Impacto social</h2>
+        <p>Las familias viven un duelo eterno, sin justicia ni verdad.</p>
+        <img src="img/imagen7.jpg" alt="Impacto social">
+        <p>El dolor de las madres buscadoras se ha convertido en una forma de resistencia. Han convertido palas y picos en símbolos de lucha frente a un gobierno ausente.</p>
+      </div>
+
+      <div class="info-caja">
+        <h2>Acciones ciudadanas</h2>
+        <p>La sociedad civil ha sido el motor de búsqueda de justicia.</p>
+        <img src="img/imagen6.jpg" alt="Acciones ciudadanas">
+        <p>Colectivos de derechos humanos, ONG y periodistas valientes documentan los hallazgos y denuncian la indiferencia del gobierno ante esta grave crisis humanitaria.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function redirigir(pagina) {
+      window.location.href = pagina;
+    }
+  </script>
+</body>
+</html>

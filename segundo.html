@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Últimos Hallazgos de Gente Desaparecida en México</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Arial', sans-serif; color:#333; background:#f5f5f5; }
+
+  
+    header, section, footer { width:100%; }
+    header { min-height:30vh; background: linear-gradient(135deg, #3A7DFF, #1E3C72); display:flex; align-items:center; justify-content:center; position:relative; color:#fff; }
+    header h1 { font-size:3em; text-shadow:0 2px 10px rgba(0,0,0,0.4); animation:fadeInDown 1s ease-out; }
+    @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px) } to { opacity:1; transform:translateY(0) } }
+
+    .container { width:90%; max-width:1200px; margin:0 auto; }
+    .spacer { height:50px; }
+
+   
+    #stats { background:#fff; padding:40px 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+    .stat-card { background:#3A7DFF; color:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1); text-align:center; animation:zoomIn 0.8s ease-out; }
+    .stat-card h3 { font-size:1.5em; margin-bottom:10px; }
+    .stat-card p { font-size:2em; font-weight:bold; margin-bottom:15px; }
+
+    @keyframes zoomIn { from { opacity:0; transform:scale(0.8) } to { opacity:1; transform:scale(1) } }
+
+    .stat-card a, .detail-btn {
+      display:inline-block;
+      position: relative;
+      background: #fff;
+      color: #1E3C72;
+      border: 2px solid #1E3C72;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+    .stat-card a:hover,
+    .detail-btn:hover {
+      background: #1E3C72;
+      color: #fff;
+    }
+    .detail-btn .tooltip {
+      visibility: hidden;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 4px 8px;
+      position: absolute;
+      top: -30px; left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.9em;
+    }
+    .detail-btn:hover .tooltip {
+      visibility: visible;
+    }
+
+    .modal {
+      display: none;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center; align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff; padding: 20px; border-radius: 8px;
+      width: 90%; max-width: 500px; position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      animation:fadeIn 0.5s ease-out;
+    }
+    .close-btn {
+      position: absolute; top: 10px; right: 15px;
+      font-size: 1.5em; cursor: pointer;
+    }
+    .modal-content h2 {
+      margin-bottom: 15px; color: #3A7DFF;
+    }
+    .modal-content p {
+      margin-bottom: 20px; line-height: 1.5; color: #555;
+    }
+    .modal-content a {
+      display: inline-block; background: #3A7DFF;
+      color: #fff; padding: 10px 20px; border-radius: 4px;
+      text-decoration: none; font-weight: bold;
+      transition: background 0.3s;
+    }
+    .modal-content a:hover {
+      background: #1E3C72;
+    }
+
+  
+    #info-story { display:flex; flex-wrap:wrap; gap:30px; padding:40px 0; }
+    .card { flex:1 1 300px; background:#fff; border-radius:8px; padding:20px; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition:transform .3s; }
+    .card:hover { transform:translateY(-5px); }
+    .card h2 { color:#3A7DFF; margin-bottom:15px; }
+    .card p { line-height:1.6; color:#555; }
+    .highlight { color:#3A7DFF; font-weight:bold; }
+
+    #media { display:flex; flex-direction:column; gap:40px; padding:40px 0; }
+    .image-container, .video-container { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1); animation:fadeIn 1s ease-out; }
+    .image-container img { width:100%; display:block; }
+    .image-container .caption { padding:10px; background:rgba(0,0,0,0.7); color:#fff; position:absolute; bottom:10px; left:10px; border-radius:4px; display:none; }
+    .image-container:hover .caption { display:block; }
+    .video-container iframe { width:100%; height:500px; border:none; }
+
+    footer { background:#111; color:#ccc; text-align:center; padding:20px 0; }
+
+    @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Últimos Hallazgos de Gente Desaparecida en México</h1>
+  </header>
+
+  <div class="spacer"></div>
+
+
+  <section id="stats" class="container">
+    <div class="stat-card">
+      <h3>Cuerpos Encontrados</h3>
+      <p>72,000</p>
+      <button class="detail-btn"
+              data-title="Cuerpos Encontrados"
+              data-summary="La ONU reporta 72,000 restos sin identificar en México, resultado de diversos hallazgos forenses."
+              data-link="https://elpais.com/mexico/2025-04-08/mexico-despliega-toda-su-maquinaria-contra-la-onu-para-negar-que-las-desapariciones-en-el-pais-sean-sistematicas.html">
+        <span class="tooltip">Más info</span>
+        Ver detalles &#9654;
+      </button>
+    </div>
+    <div class="stat-card">
+      <h3>Fosas Clandestinas</h3>
+      <p>5,600</p>
+      <button class="detail-btn"
+              data-title="Fosas Clandestinas"
+              data-summary="Se han localizado aproximadamente 5,600 fosas clandestinas en todo el país, según el mismo informe."
+              data-link="https://elpais.com/mexico/2025-04-08/mexico-despliega-toda-su-maquinaria-contra-la-onu-para-negar-que-las-desapariciones-en-el-pais-sean-sistematicas.html">
+        <span class="tooltip">Más info</span>
+        Ver detalles &#9654;
+      </button>
+    </div>
+    <div class="stat-card">
+      <h3>Estados Involucrados</h3>
+      <p>32</p>
+      <button class="detail-btn"
+              data-title="Estados Involucrados"
+              data-summary="Las 32 entidades federativas de México han registrado al menos un caso de desaparición."
+              data-link="https://cnbreportadesaparecidos.segob.gob.mx/">
+        <span class="tooltip">Más info</span>
+        Ver detalles &#9654;
+      </button>
+    </div>
+    <div class="stat-card">
+      <h3>Casos Documentados</h3>
+      <p>127,000+</p>
+      <button class="detail-btn"
+              data-title="Casos Documentados"
+              data-summary="Hay más de 127,000 personas desaparecidas documentadas hasta la fecha."
+              data-link="https://cnbreportadesaparecidos.segob.gob.mx/">
+        <span class="tooltip">Más info</span>
+        Ver detalles &#9654;
+      </button>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+ 
+  <div id="detail-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-summary"></p>
+      <a id="modal-link" href="#" target="_blank">Ir a la fuente &#8599;</a>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+ 
+  <section id="info-story" class="container">
+    <div class="card">
+      <h2>Impacto</h2>
+      <p>En México, miles de personas siguen desaparecidas, muchos casos están relacionados con la violencia y el crimen organizado.</p>
+      <p><span class="highlight">Últimos descubrimientos:</span> En Guerrero, autoridades encontraron varios cuerpos en fosas clandestinas. En CDMX se detecta un nuevo patrón vinculado a fuerzas de seguridad.</p>
+    </div>
+    <div class="card">
+      <h2>Historial Reciente</h2>
+      <p>El gobierno ha intensificado investigaciones, pero la escala del problema y la falta de colaboración dificultan los avances.</p>
+      <p>Testimonios revelan que, a pesar de pruebas, muchos casos siguen estancados en trámites largos.</p>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  
+  <section id="media" class="container">
+    <div class="image-container" style="position:relative;">
+      <img src="img/imagen12.jpg" alt="">
+      <div class="caption">Imagen del último hallazgo en Guerrero, 2025.</div>
+    </div>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/tbT1_o92Cko"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+
+ 
+  <script>
+    document.querySelectorAll('.detail-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title   = btn.getAttribute('data-title');
+        const summary = btn.getAttribute('data-summary');
+        const link    = btn.getAttribute('data-link');
+        document.getElementById('modal-title').textContent   = title;
+        document.getElementById('modal-summary').textContent = summary;
+        const a = document.getElementById('modal-link');
+        a.href = link;
+        document.getElementById('detail-modal').style.display = 'flex';
+      });
+    });
+
+    document.querySelector('.close-btn').addEventListener('click', () => {
+      document.getElementById('detail-modal').style.display = 'none';
+    });
+    window.addEventListener('click', e => {
+      if (e.target === document.getElementById('detail-modal')) {
+        e.target.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
